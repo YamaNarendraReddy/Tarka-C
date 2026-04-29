@@ -9,8 +9,9 @@ hack_tarka
 overflow_test_bin
 stress_test_bin
 tarka_test_bin
-test_tarka
-unsafe_test
+# test_tarka (helper script) is now tracked
+# test_tarka_bin remains ignored
+test_tarka_bin
 unsafe_test_bin
 *.o
 *.s
@@ -19,3 +20,5 @@ chibicc/*.o
 chibicc/stage2
 chibicc/tmp*
 chibicc/test/*.exe
+*_bin
+*.s

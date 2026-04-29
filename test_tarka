@@ -1,0 +1,38 @@
+#!/bin/bash
+# test_tarka - Build and run Tarka-C torture tests
+
+# Ensure we are in the project root
+cd "$(dirname "$0")"
+
+# Build dependencies if needed
+if [ ! -f "chibicc/chibicc" ]; then
+    echo "[*] Building chibicc compiler..."
+    make -C chibicc > /dev/null
+fi
+
+if [ ! -f "tarka_runtime.o" ]; then
+    echo "[*] Building Tarka runtime..."
+    cc -c tarka_runtime.c -o tarka_runtime.o
+fi
+
+# Compile the torture test
+echo "[*] Compiling tests/test.c with Tarka-C..."
+./chibicc/chibicc tests/test.c -o test.s
+if [ $? -ne 0 ]; then
+    echo "[!] Compilation failed."
+    exit 1
+fi
+
+cc test.s tarka_runtime.o -o test_tarka_bin
+if [ $? -ne 0 ]; then
+    echo "[!] Linking failed."
+    exit 1
+fi
+
+# Run the requested test
+if [ -z "$1" ]; then
+    echo "Usage: $0 <test_number>"
+    ./test_tarka_bin
+else
+    ./test_tarka_bin "$1"
+fi
