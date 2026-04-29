@@ -72,4 +72,4 @@ Tarka-C was developed by **Indra (B.Tech CSE-IoT)** as part of a 12-month master
 
 ---
 **"Logic is the shield of memory."**
-🚀 Japan Market Ready | Systems & Robotics Engineering.
+🚀 Educational | Systems & Robotics Engineering.
