@@ -1,0 +1,2 @@
+ gemini --resume 08dbea3a-ec68-4567-8396-a8684c0127df
+mini --resume 08dbea3a-ec68-4567-8396-a8684c0127df

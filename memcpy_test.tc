@@ -1,0 +1,6 @@
+void *memcpy(void *dest, const void *src, unsigned long n);
+int main() {
+    char a[10], b[10];
+    memcpy(a, b, 5);
+    return 0;
+}

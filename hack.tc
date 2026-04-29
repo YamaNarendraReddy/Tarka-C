@@ -1,0 +1,15 @@
+int printf(char *fmt, ...);
+
+int main() {
+    char buffer[8];
+    
+    printf("--- Tarka-C ---\n");
+    printf("Attempting to write to buffer[10]...\n");
+    
+    // Tarka-C knows 'buffer' is size 8.
+    // It will trap this instruction at the hardware/runtime level.
+    buffer[10] = 'H'; 
+
+    printf("This line should never be reached!\n");
+    return 0;
+}

@@ -1,0 +1,19 @@
+int printf(char *fmt, ...);
+void *memcpy(void *dest, const void *src, unsigned long n);
+
+char global_too_long[33] = "THIS_IS_WAY_TOO_LONG_FOR_8_BYTES";
+
+void test_diagnostic() {
+    char buffer[8];
+    
+    printf("--- Tarka-C Diagnostic Test ---\n");
+    printf("Attempting an unsafe memcpy from global...\n");
+    
+    // Tarka-C should intercept this and know exactly what happened.
+    memcpy(buffer, global_too_long, 33);
+}
+
+int main() {
+    test_diagnostic();
+    return 0;
+}
